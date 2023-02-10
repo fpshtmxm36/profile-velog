@@ -18,11 +18,13 @@ getHtml()
 				+ " div:nth-child(4) div:nth-child(3) div").children();
     
     $bodyList.each(function(i, elem) {
+        if(i == 4){
+            return false;
+        }
         ulList[i] = {
             title: $(this).find('div a h2').text(),
             url: $(this).find('div a').attr('href'),
-            date: $(this).find('div div.subinfo span:nth-child(1)').text(),
-            tag: $(this).find('div div.tags-wrapper a').text()
+            date: $(this).find('div div.subinfo span:nth-child(1)').text()
         };
     });
 
