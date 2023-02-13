@@ -9,10 +9,10 @@ const getHtml = async () => {
     }
 };
 
-async function fetchPost(name, tag) {
+async function fetchPost(name) {
     try {
-      const { data } = await fetcher({ username: name, limit: 1, tag: tag });
-      return data.data.posts[0];
+      const { data } = await getHtml(name);
+      return data;
     } catch (e) {
       throw new Error(e);
     }
@@ -20,7 +20,7 @@ async function fetchPost(name, tag) {
 
   module.exports = fetchPost;
 
-module.exports = getHtml()
+getHtml()
     .then(html => {
     let ulList = [];
     const $ = cheerio.load(html.data);

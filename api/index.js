@@ -1,5 +1,5 @@
-const scrapper = require("./src/scrap");
-const createBox = require("./ui/box");
+const scrapper = require("./scrap");
+const createBox = require("../src/box");
 
 module.exports = async (req, res) => {
   const { name } = req.query;
