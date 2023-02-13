@@ -1,16 +1,26 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const log = console.log;
 
 const getHtml = async () => {
     try {
-        return await axios.get('https://velog.io/@fpshtmxm36');
+        return await axios.get('https://velog.io/@${name}');
     } catch (error) {
         console.error(error);
     }
 };
 
-getHtml()
+async function fetchPost(name, tag) {
+    try {
+      const { data } = await fetcher({ username: name, limit: 1, tag: tag });
+      return data.data.posts[0];
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
+  module.exports = fetchPost;
+
+module.exports = getHtml()
     .then(html => {
     let ulList = [];
     const $ = cheerio.load(html.data);
@@ -32,4 +42,4 @@ getHtml()
     
     return data;
     })
-    .then(res => log(res));
+    .then();
