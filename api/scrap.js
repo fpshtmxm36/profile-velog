@@ -1,5 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const log = console.log;
 
 const getHtml = async () => {
     try {
@@ -9,17 +10,15 @@ const getHtml = async () => {
     }
 };
 
-async function fetchPost(name) {
+module.exports = async function fetchPost() {
     try {
-      const { data } = await getHtml(name);
+      const { data } = await getHtml();
       return data;
     } catch (e) {
       throw new Error(e);
     }
   }
-
-  module.exports = fetchPost;
-
+  
 getHtml()
     .then(html => {
     let ulList = [];
@@ -42,4 +41,4 @@ getHtml()
     
     return data;
     })
-    .then();
+    .then(res => log(res));

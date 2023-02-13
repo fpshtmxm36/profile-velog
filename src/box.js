@@ -10,7 +10,7 @@ const createLatestCardTitle = () => {
   
   const createLatestCardBody = ({ posts }) => {
     const post_urls = posts.map(
-      (post) => `https://velog.io/@${post.url}/` + post.url_slug
+      (post) => `https://velog.io${post.url}/`
     );
     return `
     <g data-testid="main-card-body" transform="translate(0, 45)">
@@ -33,7 +33,6 @@ const createLatestCardTitle = () => {
           .header {
               font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
               fill: #343A40;
-              animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529 }
           .log-description { font-size: 12px; fill: #495057}
