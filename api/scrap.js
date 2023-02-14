@@ -1,19 +1,27 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const log = console.log;
 
-var html = "";
-let ulList = [];
-async function getHTML(){
-    try{
-        console.log("getHtml");
-        return await axios.get("https://velog.io/@fpshtmxm36");
-    }catch(err){
-        console.log(err);
+const getHtml = async () => {
+    try {
+        return await axios.get('https://velog.io/@fpshtmxm36');
+    } catch (error) {
+        console.error(error);
     }
-}
+};
 
-function parsing(){
-    html = getHTML();
+module.exports = async function fetchPost() {
+    try {
+      const { data } = await getHtml();
+      return data;
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+  
+getHtml()
+    .then(html => {
+    let ulList = [];
     const $ = cheerio.load(html.data);
     const $bodyList = $("#root > div:nth-child(2) > div:nth-child(3) > "
 				+ " div:nth-child(4) div:nth-child(3) div").children();
@@ -27,10 +35,9 @@ function parsing(){
             date: $(this).find('div div.subinfo span:nth-child(1)').text()
         };
     });
-    
+
     const data = ulList.filter(n => n.title);
     
-    return ulList;
-}
-
-module.exports = { parsing };
+    return data;
+    })
+    .then(res => log(res));
