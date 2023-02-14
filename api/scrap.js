@@ -12,7 +12,7 @@ const getHtml = async () => {
 
 async function fetchPost() {
     try {
-      const data  = await getHtml();
+      const { data }  = await getHtml();
       return data;
     } catch (e) {
       throw new Error(e);
