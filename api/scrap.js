@@ -1,11 +1,11 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const log = console.log;
 
 async function getDetail() {
     return await axios
     .get('https://velog.io/@fpshtmxm36')
     .then(async (data) => {
+        let ulList = [];
         const $ = cheerio.load(data.data);
         const $bodyList = $("#root > div:nth-child(2) > div:nth-child(3) > "
             + " div:nth-child(4) div:nth-child(3) div").children();
@@ -20,6 +20,7 @@ async function getDetail() {
             };
         });
         const content = ulList.filter(n => n.title);
+
         return content;
     });
 }
