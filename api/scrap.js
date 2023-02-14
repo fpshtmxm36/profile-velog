@@ -1,3 +1,6 @@
+
+const express = require('express');
+const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 
@@ -28,7 +31,15 @@ async function parsing(){
         };
     });
     
-    return ulList;
+    const data = ulList.filter(n => n.title);
+    
+    return data;
 }
 
-module.exports = parsing;
+router.get('/', function(req, res) {
+    res.send(ulList);
+}); 
+
+module.exports = {
+    parsing, router
+};
