@@ -38,7 +38,6 @@ const createLatestCardTitle = () => {
       </style>
   `;
   const createLatestCard = (data) => {
-    console.log(data);
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="350" height="160" viewBox="0 0 350 160" fill="none">
               ${latestCardStyle}
