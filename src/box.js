@@ -37,7 +37,7 @@ const createLatestCardTitle = () => {
           .list-style{font-size:14px; fill: #212529; }
       </style>
   `;
-  const createLatestCard = (data) => {
+  const createLatestCard = (posts) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="350" height="160" viewBox="0 0 350 160" fill="none">
               ${latestCardStyle}
@@ -45,7 +45,7 @@ const createLatestCardTitle = () => {
                 <rect width="350" height="160" rx="10" fill="white"/>
                 <rect x="5" y="5" width="340" height="150" rx="10" fill="white" stroke="#C8C8C8" stroke-opacity="0.75" stroke-width="3"/>
               ${createLatestCardTitle()}
-              ${createLatestCardBody(data)}
+              ${createLatestCardBody(posts)}
           </svg>
       `;
   };
