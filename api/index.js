@@ -5,8 +5,12 @@ const log = console.log;
 module.exports = async (req, res) => {
   res.setHeader("Content-Type", "image/svg+xml");
   try {
-    const posts = await getHtml();
-    return res.send(createLatestCard(posts));
+    //const posts = await getHtml();
+    ulList = {
+      title: "title",
+      date: "date"
+  };
+    return res.send(createLatestCard(ulList));
   } catch (e) {
     log(e);
     return res.send(e.message);
