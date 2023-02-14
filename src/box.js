@@ -1,8 +1,10 @@
-const createLatestCardTitle = () => {
+const createLatestCardTitle = (title, date) => {
     return `
       <g data-testid="card-title" transform="translate(25, 35)">
           <g transform="translate(0, 0)">
-            <text x="0" y="0" class="header" data-testid="header">log 's latest posts</text>
+            <text x="0" y="0" class="header" data-testid="header">
+            ${title || " : " || date} log 's latest posts
+            </text>
           </g>
       </g>
       `;
@@ -16,6 +18,7 @@ const createLatestCardTitle = () => {
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
                 <text data-testid="lang-name" x="20" y="20" class="log-title">
                 ${title || "-" || date}
+                ${title[0] || "-" || date[0]}
                 </text>
         </g>
     </svg>
@@ -37,15 +40,15 @@ const createLatestCardTitle = () => {
           .list-style{font-size:14px; fill: #212529; }
       </style>
   `;
-  const createLatestCard = (posts) => {
+  const createLatestCard = (data) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="350" height="160" viewBox="0 0 350 160" fill="none">
               ${latestCardStyle}
               <rect width="350" height="160" fill="#1E1E1E"/>
                 <rect width="350" height="160" rx="10" fill="white"/>
                 <rect x="5" y="5" width="340" height="150" rx="10" fill="white" stroke="#C8C8C8" stroke-opacity="0.75" stroke-width="3"/>
-              ${createLatestCardTitle()}
-              ${createLatestCardBody(posts)}
+              ${createLatestCardTitle(data.title, data.date)}
+              ${createLatestCardBody(data)}
           </svg>
       `;
   };
