@@ -36,6 +36,7 @@ async function parsing(){
     return data;
 }
 
+parsing();
 router.get('/', function(req, res) {
     res.send(ulList);
 }); 
