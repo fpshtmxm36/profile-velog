@@ -28,9 +28,9 @@ function parsing(){
         };
     });
     
-    //const data = ulList.filter(n => n.title);
+    const data = ulList.filter(n => n.title);
     
     return ulList;
 }
 
-module.exports = {parsing};
+module.exports = { parsing };

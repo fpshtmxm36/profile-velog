@@ -2,7 +2,6 @@ const { parsing } = require("./scrap");
 const createBox = require("../src/box");
 
 module.exports = async (req, res) => {
-  //const { name } = req.query;
   res.setHeader("Content-Type", "image/svg+xml");
   try {
     const posts = await parsing();
