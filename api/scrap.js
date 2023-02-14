@@ -31,6 +31,6 @@ getHtml()
     
     return data;
     })
-    .then(res => log(res));
+    .then((res) => {return res;});
 
     module.exports = getHtml;
