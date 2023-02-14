@@ -50,4 +50,4 @@ const createLatestCardTitle = () => {
       `;
   };
   
-  module.exports = createLatestCard;
+  module.exports = { createLatestCard };
