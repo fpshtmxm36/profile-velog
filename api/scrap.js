@@ -1,6 +1,3 @@
-
-const express = require('express');
-const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 
@@ -36,4 +33,4 @@ function parsing(){
     return ulList;
 }
 
-module.exports = parsing;
+module.exports = {parsing};
