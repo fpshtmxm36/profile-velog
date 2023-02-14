@@ -40,6 +40,4 @@ router.get('/', function(req, res) {
     res.send(ulList);
 }); 
 
-module.exports = {
-    parsing, router
-};
+module.exports =  router;
