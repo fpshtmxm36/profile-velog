@@ -8,19 +8,14 @@ const createLatestCardTitle = () => {
       `;
   };
   
-  const createLatestCardBody = ( posts ) => {
+  const createLatestCardBody = ({ title, date }) => {
     return `
     <g data-testid="main-card-body" transform="translate(0, 45)">
     <svg data-testid="lang-items" x="25" width="400" height="400" viewBox="0 0 400 400">
         <g transform="translate(0, 0)">
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
                 <text data-testid="lang-name" x="20" y="20" class="log-title">
-                ${posts || "<br>"}
-                ${posts[1] || "<br>"}
-                ${posts[0] || "-" || posts[1]}
-                ${posts[0]?.title || "-" || posts[0]?.date}
-                ${posts[1]?.title || "-" || posts[1]?.date}
-                ${posts[1]?.title || "-" || posts[1]?.date}
+                ${title || "-" || date}
                 </text>
         </g>
     </svg>
