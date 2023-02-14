@@ -36,4 +36,4 @@ async function parsing(){
     return ulList;
 }
 
-module.exports = parsing;
+module.exports = parsing();
