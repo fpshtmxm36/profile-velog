@@ -8,7 +8,7 @@ const createLatestCardTitle = () => {
       `;
   };
   
-  const createLatestCardBody = ({ posts }) => {
+  const createLatestCardBody = ( posts ) => {
     return `
     <g data-testid="main-card-body" transform="translate(0, 45)">
     <svg data-testid="lang-items" x="25" width="400" height="400" viewBox="0 0 400 400">
@@ -38,6 +38,7 @@ const createLatestCardTitle = () => {
       </style>
   `;
   const createLatestCard = (posts) => {
+    console.log(posts);
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="350" height="160" viewBox="0 0 350 160" fill="none">
               ${latestCardStyle}

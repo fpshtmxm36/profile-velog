@@ -4,24 +4,17 @@ const log = console.log;
 
 const getHtml = async () => {
     try {
+        log("axios");
         return await axios.get('https://velog.io/@fpshtmxm36');
     } catch (error) {
         console.error(error);
     }
 };
-
-async function fetchPost() {
-    try {
-      const { data }  = await getHtml();
-      return data;
-    } catch (e) {
-      throw new Error(e);
-    }
-  }
   
 getHtml()
     .then(html => {
     let ulList = [];
+    log("cheerio");
     const $ = cheerio.load(html.data);
     const $bodyList = $("#root > div:nth-child(2) > div:nth-child(3) > "
 				+ " div:nth-child(4) div:nth-child(3) div").children();
@@ -40,6 +33,7 @@ getHtml()
     
     return data;
     })
-    .then(res => {return res} );
+    .then(res => {log(res); return res;}
+);
 
-    module.exports = { fetchPost };
+module.exports = { getHtml };

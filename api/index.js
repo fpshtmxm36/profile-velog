@@ -1,13 +1,14 @@
-const { fetchPost } = require("./scrap");
+const { getHtml } = require("./scrap");
 const { createLatestCard } = require("../src/box");
+const log = console.log;
 
 module.exports = async (req, res) => {
   res.setHeader("Content-Type", "image/svg+xml");
   try {
-    const posts = await fetchPost();
+    const posts = await getHtml();
     return res.send(createLatestCard(posts));
   } catch (e) {
-    console.log(e);
+    log(e);
     return res.send(e.message);
   }
 };
