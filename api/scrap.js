@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 
 const url = 'https://velog.io/@fpshtmxm36';
 
-const getHtml = async (url) => {
+const getHtml = async () => {
     try {
         return await axios.get(url);
     } catch (error) {
@@ -15,11 +15,10 @@ const getHtml = async (url) => {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    getHtml(url)
+    getHtml()
         .then(html => {
             let ulList = [];
             const $ = cheerio.load(html.data);
-
 
             const $bodyList = $("#root > div:nth-child(2) > div:nth-child(3) > "
 				+ " div:nth-child(4) div:nth-child(3) div").children();
