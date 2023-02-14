@@ -29,8 +29,13 @@ getHtml()
         };
     });
 
-    const data = ulList.filter(n => n.title);
+    log(ulList[0].title + " - " + ulList[0].date);
     
+    let data = [];
+    data = ulList.filter(n => n.title);
+    
+    log(data[0].title + " - " + data[0].date);
+
     return data;
     })
     .then(res => {log(res); return res;}
