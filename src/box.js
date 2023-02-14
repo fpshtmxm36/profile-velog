@@ -9,15 +9,11 @@ const createLatestCardTitle = () => {
   };
   
   const createLatestCardBody = ({ posts }) => {
-    const post_urls = posts.map(
-      (post) => `https://velog.io${post.url}/`
-    );
     return `
     <g data-testid="main-card-body" transform="translate(0, 45)">
     <svg data-testid="lang-items" x="25" width="400" height="400" viewBox="0 0 400 400">
         <g transform="translate(0, 0)">
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
-            <a href="${post_urls[0]}">
                 <text data-testid="lang-name" x="20" y="20" class="log-title">${
                   posts[0]?.title || "-"
                 }</text>
