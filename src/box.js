@@ -18,7 +18,6 @@ const createLatestCardTitle = (title, date) => {
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
                 <text data-testid="lang-name" x="20" y="20" class="log-title">
                 ${title || "-" || date}
-                ${title[0] || "-" || date[0]}
                 </text>
         </g>
     </svg>
