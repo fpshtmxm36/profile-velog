@@ -10,9 +10,9 @@ const getHtml = async () => {
     }
 };
 
-module.exports = async function fetchPost() {
+async function fetchPost() {
     try {
-      const { data } = await getHtml();
+      const data  = await getHtml();
       return data;
     } catch (e) {
       throw new Error(e);
@@ -41,3 +41,5 @@ getHtml()
     return data;
     })
     .then(res => log(res));
+
+    module.exports = { fetchPost };
