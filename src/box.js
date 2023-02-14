@@ -15,8 +15,11 @@ const createLatestCardTitle = () => {
         <g transform="translate(0, 0)">
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
                 <text data-testid="lang-name" x="20" y="20" class="log-title">
+                ${posts || "<br>"}
+                ${posts[1] || "<br>"}
                 ${posts[0] || "-" || posts[1]}
                 ${posts[0]?.title || "-" || posts[0]?.date}
+                ${posts[1]?.title || "-" || posts[1]?.date}
                 ${posts[1]?.title || "-" || posts[1]?.date}
                 </text>
         </g>
@@ -40,14 +43,12 @@ const createLatestCardTitle = () => {
       </style>
   `;
   const createLatestCard = (posts) => {
-    console.log(posts);
     return `
     <svg xmlns="http://www.w3.org/2000/svg" width="350" height="160" viewBox="0 0 350 160" fill="none">
               ${latestCardStyle}
               <rect width="350" height="160" fill="#1E1E1E"/>
                 <rect width="350" height="160" rx="10" fill="white"/>
                 <rect x="5" y="5" width="340" height="150" rx="10" fill="white" stroke="#C8C8C8" stroke-opacity="0.75" stroke-width="3"/>
-              ${posts}
               ${createLatestCardTitle()}
               ${createLatestCardBody(posts)}
           </svg>
