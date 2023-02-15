@@ -3,7 +3,7 @@ const createLatestCardTitle = (data) => {
       <g data-testid="card-title" transform="translate(25, 35)">
           <g transform="translate(0, 0)">
             <text x="0" y="0" class="header" data-testid="header">
-            ${data[0]?.title} log 's latest posts
+            ${data} log 's latest posts
             </text>
           </g>
       </g>
