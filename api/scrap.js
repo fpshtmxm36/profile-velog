@@ -11,8 +11,7 @@ const getHtml = async () => {
     }
 };
   
-getHtml()
-    .then(html => {
+module.exports = getHtml().then(html => {
     let ulList = [];
     log("cheerio");
     const $ = cheerio.load(html.data);
@@ -40,5 +39,3 @@ getHtml()
     })
     .then(res => {log(res); return res;}
 );
-
-module.exports = { getHtml };
