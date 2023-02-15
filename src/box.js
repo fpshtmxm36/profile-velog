@@ -1,6 +1,6 @@
 const createLatestCardTitle = (data) => {
     return `
-      <g data-testid="card-title" transform="translate(25, 35)">
+      <g data-testid="card-title" transform="translate(20, 35)">
           <g transform="translate(0, 0)">
             <text x="0" y="0" class="header" data-testid="header">
             Latest velog posts
@@ -17,7 +17,7 @@ const createLatestCardTitle = (data) => {
         <g transform="translate(0, 0)">
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
             <text data-testid="lang-name" x="20" y="20" class="log-title">
-            ${data[0]?.title || " - " || data[0]?.createTime}
+            ${data[0]?.title + " - " + data[0]?.createTime}
             </text>
         </g>
     </svg>
@@ -41,14 +41,14 @@ const createLatestCardTitle = (data) => {
   `;
   const createLatestCard = (data) => {
     return `
-    <svg xmlns="http://www.w3.org/2000/svg" width="350" height="160" viewBox="0 0 350 160" fill="none">
-              ${latestCardStyle}
-              <rect width="380" height="110" fill="#1E1E1E"/>
-                <rect width="380" height="110" rx="10" fill="white"/>
-                <rect x="5" y="5" width="370" height="100" rx="10" fill="white" stroke="#C8C8C8" stroke-opacity="0.75" stroke-width="3"/>
-              ${createLatestCardTitle(data.title, data.createTime)}
-              ${createLatestCardBody(data)}
-          </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="380" height="110" viewBox="0 0 380 110" fill="none">
+        ${latestCardStyle}
+        <rect width="380" height="110" fill="#1E1E1E"/>
+        <rect width="380" height="110" rx="10" fill="white"/>
+        <rect x="5" y="5" width="370" height="100" rx="10" fill="white" stroke="#C8C8C8" stroke-opacity="0.75" stroke-width="3"/>
+        ${createLatestCardTitle(data.title, data.createTime)}
+        ${createLatestCardBody(data)}
+    </svg>
       `;
   };
   
