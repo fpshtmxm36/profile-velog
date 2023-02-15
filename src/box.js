@@ -1,7 +1,7 @@
 const createLatestCardBody = (data) => {
     return `
-    <g data-testid="main-card-body" transform="translate(0, 45)">
-    <svg data-testid="lang-items" x="25" width="360" height="360" viewBox="0 0 360 360">
+    <g data-testid="main-card-body" transform="translate(5, 9)">
+    <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
         <g transform="translate(0, 0)">
             <text data-testid="lang-name" x="0" y="20" class="log-title">
             ${data[0]?.title}
