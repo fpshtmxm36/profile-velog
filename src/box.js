@@ -31,7 +31,7 @@ const createLatestCard = (data) => {
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
         ${latestCardStyle}
-        <rect width="400" height="65" rx="10" fill="white" fill-opacity="0.1"/>
+        <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
         <rect x="9" y="12" width="40" height="40" fill="url(#pattern0)"/>
         <defs>
         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
