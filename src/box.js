@@ -10,7 +10,7 @@ const createLatestCardTitle = (title, date) => {
       `;
   };
   
-  const createLatestCardBody = ({data}) => {
+  const createLatestCardBody = (data) => {
     return `
     <g data-testid="main-card-body" transform="translate(0, 45)">
     <svg data-testid="lang-items" x="25" width="400" height="400" viewBox="0 0 400 400">
@@ -20,7 +20,7 @@ const createLatestCardTitle = (title, date) => {
                 ${data}
                 </text>
                 <text data-testid="lang-name" x="20" y="40" class="log-title">
-                ${data.title || "-" || data.date}
+                ${data[0]?.title || "-" || data[0]?.date}
                 </text>
 
         </g>
