@@ -10,15 +10,22 @@ const createLatestCardTitle = (title, date) => {
       `;
   };
   
-  const createLatestCardBody = ({ title, date }) => {
+  const createLatestCardBody = ({data}) => {
     return `
     <g data-testid="main-card-body" transform="translate(0, 45)">
     <svg data-testid="lang-items" x="25" width="400" height="400" viewBox="0 0 400 400">
         <g transform="translate(0, 0)">
             <text data-testid="lang-list" class="list-style" x="5" y="20">•</text>
                 <text data-testid="lang-name" x="20" y="20" class="log-title">
-                ${title || "-" || date}
+                ${data}
                 </text>
+                <text data-testid="lang-name" x="20" y="40" class="log-title">
+                ${data[0]?.title || "-" || data[0]?.date}
+                ${data[1]?.title || "-" || data[1]?.date}
+                ${data[2]?.title || "-" || data[2]?.date}
+                ${data[3]?.title || "-" || data[3]?.date}
+                </text>
+
         </g>
     </svg>
   </g>

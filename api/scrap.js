@@ -10,13 +10,14 @@ const getHtml = async () => {
         console.error(error);
     }
 };
-  
-module.exports = getHtml().then(html => {
-    let ulList = [];
+
+const parsing = async () => {
+    const html = await getHtml();
     log("cheerio");
     const $ = cheerio.load(html.data);
     const $bodyList = $("#root > div:nth-child(2) > div:nth-child(3) > "
 				+ " div:nth-child(4) div:nth-child(3) div").children();
+    let ulList = [];
     
     $bodyList.each(function(i, elem) {
         if(i == 4){
@@ -28,14 +29,14 @@ module.exports = getHtml().then(html => {
         };
     });
 
-    log(ulList[0].title + " - " + ulList[0].date);
-    
     let data = [];
     data = ulList.filter(n => n.title);
-    
-    log(data[0].title + " - " + data[0].date);
+
+    log(data[0].title);
 
     return data;
-    })
-    .then(res => {log(res); return res;}
-);
+}
+
+parsing();
+
+module.exports = { parsing };
