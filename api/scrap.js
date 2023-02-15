@@ -11,7 +11,7 @@ const getHtml = async () => {
     }
 };
 
-const parsing = async () => {
+const parsing = async (seq) => {
     const html = await getHtml();
     log("cheerio");
     const $ = cheerio.load(html.data);
@@ -20,23 +20,18 @@ const parsing = async () => {
     let ulList = [];
     
     $bodyList.each(function(i, elem) {
-        if(i == 4){
-            return false;
+        if(i == seq){
+            ulList[i] = {
+                title: $(this).find('div a h2').text(),
+                createTime: $(this).find('div div.subinfo span:nth-child(1)').text()
+            };
         }
-        ulList[i] = {
-            title: $(this).find('div a h2').text(),
-            date: $(this).find('div div.subinfo span:nth-child(1)').text()
-        };
     });
 
     let data = [];
     data = ulList.filter(n => n.title);
 
-    log(data[0].title);
-
     return data;
 }
-
-parsing();
 
 module.exports = { parsing };

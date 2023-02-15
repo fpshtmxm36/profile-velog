@@ -20,9 +20,8 @@ const createLatestCardTitle = (title, date) => {
                 ${data}
                 </text>
                 <text data-testid="lang-name" x="20" y="40" class="log-title">
-                ${data[0]?.title || "-" || data[0]?.date}
+                ${data[0]?.title || "-" || data[0]?.createTime}
                 </text>
-
         </g>
     </svg>
   </g>
