@@ -21,7 +21,7 @@ const parsing = async (id, seq) => {
             ulList[i] = {
                 title: $(this).find('div a h2').text(),
                 createTime: $(this).find('div div.subinfo span:nth-child(1)').text(),
-                url: 'https://velog.io/@' + id + $(this).find('div a').attr('href')
+                url: 'https://velog.io/' + $(this).find('div a').attr('href')
             };
         }
     });
