@@ -3,7 +3,7 @@ const cheerio = require("cheerio");
 
 const getHtml = async (id) => {
     try {
-        return await axios.get('https://velog.io/@${id}');
+        return await axios.get('https://velog.io/@'+id);
     } catch (error) {
         console.error(error);
     }

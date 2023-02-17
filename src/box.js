@@ -1,5 +1,6 @@
 const createLatestCardBody = (data) => {
     return `
+    <a xlink:href="${data[0]?.url}" target="_blank">
     <g data-testid="main-card-body" transform="translate(5, 9)">
     <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
         <g transform="translate(0, 0)">
@@ -12,6 +13,7 @@ const createLatestCardBody = (data) => {
         </g>
     </svg>
     </g>
+    </a>
         `;
 };
   
@@ -26,17 +28,10 @@ const latestCardStyle = `
     </style>
 `;
 
-const createHref = (data) => {
-    return `
-    <a xlink:href="${data[0]?.url}" target="_blank">
-        `;
-};
-
 const createLatestCard = (data) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
-        ${createHref(data)}
         ${latestCardStyle}
         <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
         <rect x="9" y="12" width="40" height="40" fill="url(#pattern0)"/>
@@ -50,7 +45,6 @@ const createLatestCard = (data) => {
         />
         </defs>
         ${createLatestCardBody(data)}
-        </a>
     </svg>
         `;
 };
