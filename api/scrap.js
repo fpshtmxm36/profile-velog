@@ -1,11 +1,9 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const log = console.log;
 
 const getHtml = async (id) => {
     try {
-        log("axios");
-        return await axios.get('https://velog.io/@'+id);
+        return await axios.get('https://velog.io/@${id}');
     } catch (error) {
         console.error(error);
     }
@@ -13,7 +11,6 @@ const getHtml = async (id) => {
 
 const parsing = async (id, seq) => {
     const html = await getHtml(id);
-    log("cheerio");
     const $ = cheerio.load(html.data);
     const $bodyList = $("#root > div:nth-child(2) > div:nth-child(3) > "
 				+ " div:nth-child(4) div:nth-child(3) div").children();
