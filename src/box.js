@@ -23,7 +23,7 @@ const latestCardStyle = `
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
             fill: #343A40;
         }
-        .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529 }
+        .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529; text-overflow: ellipsis;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
 `;
