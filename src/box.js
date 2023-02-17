@@ -26,11 +26,17 @@ const latestCardStyle = `
     </style>
 `;
 
+const createHref = (data) => {
+    return `
+    <a xlink:href="${data[0]?.url}" target="_blank">
+        `;
+};
+
 const createLatestCard = (data) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
-        <a xlink:href="${data[0]?.url}" target="_blank">
+        ${createHref(data)}
         ${latestCardStyle}
         <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
         <rect x="9" y="12" width="40" height="40" fill="url(#pattern0)"/>
