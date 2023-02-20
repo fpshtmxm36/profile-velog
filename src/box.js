@@ -22,7 +22,7 @@ const latestCardStyle = `
         
         var g = d3.select('.log-title');
 
-        g.append('tspan').text(function(d) { return d.name; }).each(wrap);
+        g.text(function(d) { return d.name; }).each(wrap);
     </script>
 `;
 
