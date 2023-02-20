@@ -27,7 +27,6 @@ const latestCardStyle = `
         .log-date { font-size: 12px; fill: #495057}
     </style>
     <script type="text/javascript">
-    ${
         function textEllipsis(el, text, width) {
             if (typeof el.getSubStringLength !== "undefined") {
             el.textContent = text;
@@ -49,7 +48,6 @@ const latestCardStyle = `
                 }
             }
         }
-    }
     </script>
 `;
 
