@@ -8,19 +8,7 @@ const latestCardStyle = `
         .log-date { font-size: 12px; fill: #495057}
     </style>
     <script type="text/javascript" src="node_modules/d3/dist/d3.js" charset="utf-8"></script>
-    <script type="text/javascript">
-        import * as d3 from 'node_modules/d3/dist/d3.js';
-        window.d3 = d3;    
-        function wrap() {
-            var self = d3.select(this),
-                textLength = self.node().getComputedTextLength(),
-                text = self.text();
-            while (textLength > (width - 2 * padding) &amp;&amp; text.length > 0) {
-                text = text.slice(0, -1);
-                self.text(text + '...');
-                textLength = self.node().getComputedTextLength();
-            }
-        }
+    <script type="module" src="./useD3.js">
         
         var g = d3.select('.log-title');
 
