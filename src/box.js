@@ -41,7 +41,7 @@ const latestCardStyle = `
             // Try the whole line
             // While it's too long, and we have words left, keep removing words
             
-            while (tspan.node().getComputedTextLength() > width && words.length) {
+            while (tspan.node().getComputedTextLength() > width & words.length) {
                 words.pop();
                 tspan.text(words.join(' '));
             }
