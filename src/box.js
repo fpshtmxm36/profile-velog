@@ -5,7 +5,7 @@ const createLatestCardBody = (data) => {
     <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
         <g transform="translate(0, 0)">
             <text data-testid="lang-name" x="0" y="20" width="344" class="log-title">
-            ${data[0]?.title}
+            ${textEllipsis(this, data[0]?.title, 334)}
             </text>
             <text data-testid="lang-name" x="0" y="40" class="log-date">
             ${data[0]?.createTime}
@@ -26,31 +26,30 @@ const latestCardStyle = `
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script>
-    function dotme(text) {
-        text.each(function() {
-            var text = d3.select(this);
-            var words = text.text().split(/\s+/);
-            
-            var ellipsis = text.text('').append('tspan').attr('class', 'elip').text('...');
-            var width = parseFloat(text.attr('width')) - ellipsis.node().getComputedTextLength();
-            var numWords = words.length;
-            
-            var tspan = text.insert('tspan', ':first-child').text(words.join(' '));
-            
-            while (tspan.node().getComputedTextLength() > width &amp;&amp; words.length) {
-                words.pop();
-                tspan.text(words.join(' '));
+    <script type="text/javascript">
+    ${
+        function textEllipsis(el, text, width) {
+            if (typeof el.getSubStringLength !== "undefined") {
+            el.textContent = text;
+            var len = text.length;
+            while (el.getSubStringLength(0, len--) > width) {
+                el.textContent = text.slice(0, len) + "...";
+                }
+            } else if (typeof el.getComputedTextLength !== "undefined") {
+            while (el.getComputedTextLength() > width) {
+                text = text.slice(0,-1);
+                el.textContent = text + "...";
+                }
+            } else {
+            // the last fallback
+            while (el.getBBox().width > width) {
+                text = text.slice(0,-1);
+                // we need to update the textContent to update the boundary width
+                el.textContent = text + "...";
+                }
             }
-            
-            if (words.length === numWords) {
-                ellipsis.remove();
-            }
-        });
+        }
     }
-
-    d3.selectAll('.log-title').call(dotme);
     </script>
 `;
 
