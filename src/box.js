@@ -1,22 +1,3 @@
-const createLatestCardBody = (data) => {
-    return `
-    <a xlink:href="${data[0]?.url}" target="_blank">
-    <g data-testid="main-card-body" transform="translate(5, 9)">
-    <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
-        <g transform="translate(0, 0)">
-            <text data-testid="lang-name" x="0" y="20" width="344" class="log-title">
-            textEllipsis(${this}, ${data[0]?.title}, 344)
-            </text>
-            <text data-testid="lang-name" x="0" y="40" class="log-date">
-            ${data[0]?.createTime}
-            </text>
-        </g>
-    </svg>
-    </g>
-    </a>
-        `;
-};
-  
 const latestCardStyle = `
     <style>
         .header {
@@ -27,7 +8,7 @@ const latestCardStyle = `
         .log-date { font-size: 12px; fill: #495057}
     </style>
     <script type="text/javascript">
-        function textEllipsis(el, text, width) {
+        ${function textEllipsis(el, text, width) {
             if (typeof el.getSubStringLength !== "undefined") {
             el.textContent = text;
             var len = text.length;
@@ -48,8 +29,28 @@ const latestCardStyle = `
                 }
             }
         }
+    }
     </script>
 `;
+
+const createLatestCardBody = (data) => {
+    return `
+    <a xlink:href="${data[0]?.url}" target="_blank">
+    <g data-testid="main-card-body" transform="translate(5, 9)">
+    <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
+        <g transform="translate(0, 0)">
+            <text data-testid="lang-name" x="0" y="20" width="344" class="log-title">
+            ${textEllipsis(this, data[0]?.title, 344)}
+            </text>
+            <text data-testid="lang-name" x="0" y="40" class="log-date">
+            ${data[0]?.createTime}
+            </text>
+        </g>
+    </svg>
+    </g>
+    </a>
+        `;
+};
 
 const createLatestCard = (data) => {
     return `
