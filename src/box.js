@@ -26,6 +26,7 @@ const latestCardStyle = `
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script>
     function dotme(text) {
         text.each(function() {
