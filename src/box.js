@@ -9,7 +9,7 @@ const latestCardStyle = `
     </style>
     <script type="text/javascript" src="node_modules/d3/dist/d3.js" charset="utf-8"></script>
     <script type="text/javascript">
-        import * as d3 from 'd3';
+        import * as d3 from 'node_modules/d3/dist/d3.js';
         window.d3 = d3;    
         function wrap() {
             var self = d3.select(this),
