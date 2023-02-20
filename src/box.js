@@ -7,29 +7,22 @@ const latestCardStyle = `
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript">
-        ${function textEllipsis(el, text, width) {
-            if (typeof el.getSubStringLength !== "undefined") {
-            el.textContent = text;
-            var len = text.length;
-            while (el.getSubStringLength(0, len--) > width) {
-                el.textContent = text.slice(0, len) + "...";
-                }
-            } else if (typeof el.getComputedTextLength !== "undefined") {
-            while (el.getComputedTextLength() > width) {
-                text = text.slice(0,-1);
-                el.textContent = text + "...";
-                }
-            } else {
-            // the last fallback
-            while (el.getBBox().width > width) {
-                text = text.slice(0,-1);
-                // we need to update the textContent to update the boundary width
-                el.textContent = text + "...";
-                }
+        function wrap() {
+            var self = d3.select(this),
+                textLength = self.node().getComputedTextLength(),
+                text = self.text();
+            while (textLength > (width - 2 * padding) && text.length > 0) {
+                text = text.slice(0, -1);
+                self.text(text + '...');
+                textLength = self.node().getComputedTextLength();
             }
         }
-    }
+        
+        var g = d3.select('.log-title')=;
+
+        g.append('tspan').text(function(d) { return d.name; }).each(wrap);
     </script>
 `;
 
