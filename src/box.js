@@ -49,7 +49,8 @@ const createLatestCard = (data) => {
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
         <head>
-            <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+            <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
+            <title>profile-velog</title>
         </head>
         ${latestCardStyle}
         <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
