@@ -4,8 +4,8 @@
       "source": "/",
       "destination": "https://profile-velog.vercel.app/api?id=fpshtmxm36&seq=0"
     }
-],
-"version": 2,
+  ],
+  "version": 2,
   "builds": [
     {
        "src": "./api/index.js",
