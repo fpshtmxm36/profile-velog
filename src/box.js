@@ -7,6 +7,7 @@ const latestCardStyle = `
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
+    <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
     <script type="text/javascript">
         function wrap() {
             var self = d3.select(this),
@@ -48,10 +49,6 @@ const createLatestCard = (data) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
-        <head>
-            <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script>
-            <title>profile-velog</title>
-        </head>
         ${latestCardStyle}
         <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
         <rect x="9" y="12" width="40" height="40" fill="url(#pattern0)"/>
