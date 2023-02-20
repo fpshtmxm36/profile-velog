@@ -1,13 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-function textEllipsis(text) {
-    if (text.length > 23) {
-        text = text.substr(0, 21) + '...';
-    }
-    return text;
-  }
-
 const getHtml = async (id) => {
     try {
         return await axios.get('https://velog.io/@'+id);
@@ -26,7 +19,7 @@ const parsing = async (id, seq) => {
     $bodyList.each(function(i, elem) {
         if(i == seq){
             ulList[i] = {
-                title: textEllipsis($(this).find('div a h2').text()),
+                title: $(this).find('div a h2').text(),
                 createTime: $(this).find('div div.subinfo span:nth-child(1)').text(),
                 url: 'https://velog.io' + $(this).find('div a').attr('href')
             };

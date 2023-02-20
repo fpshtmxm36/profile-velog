@@ -23,9 +23,37 @@ const latestCardStyle = `
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
             fill: #343A40;
         }
-        .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529; text-overflow: ellipsis;}
+        .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
+    <script>
+    function dotme(text) {
+        text.each(function() {
+            var text = d3.select(this);
+            var words = text.text().split(/\s+/);
+            
+            var ellipsis = text.text('').append('tspan').attr('class', 'elip').text('...');
+            var width = parseFloat(text.attr('width')) - ellipsis.node().getComputedTextLength();
+            var numWords = words.length;
+            
+            var tspan = text.insert('tspan', ':first-child').text(words.join(' '));
+            
+            // Try the whole line
+            // While it's too long, and we have words left, keep removing words
+            
+            while (tspan.node().getComputedTextLength() > width && words.length) {
+                words.pop();
+                tspan.text(words.join(' '));
+            }
+            
+            if (words.length === numWords) {
+                ellipsis.remove();
+            }
+        });
+    }
+
+    d3.selectAll('.log-title').call(dotme);
+    </script>
 `;
 
 const createLatestCard = (data) => {
