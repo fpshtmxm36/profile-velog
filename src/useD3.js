@@ -1,6 +1,7 @@
 import * as d3 from 'node_modules/d3/dist/d3.js';
         
 export default function wrap() {
+    d3;
     var self = d3.select(this),
         textLength = self.node().getComputedTextLength(),
         text = self.text();
@@ -9,7 +10,6 @@ export default function wrap() {
         self.text(text + '...');
         textLength = self.node().getComputedTextLength();
     }
-    var g = d3.select('.log-title');
-
-    g.text(function(d) { return d.name; }).each(wrap);
 }
+
+export const d3 = d3;
