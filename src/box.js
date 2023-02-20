@@ -13,7 +13,7 @@ const latestCardStyle = `
             var self = d3.select(this),
                 textLength = self.node().getComputedTextLength(),
                 text = self.text();
-            while (textLength > (width - 2 * padding) && text.length > 0) {
+            while (textLength > (width - 2 * padding) &amp;&amp; text.length > 0) {
                 text = text.slice(0, -1);
                 self.text(text + '...');
                 textLength = self.node().getComputedTextLength();
