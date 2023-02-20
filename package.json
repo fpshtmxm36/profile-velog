@@ -16,5 +16,5 @@
     "cheerio": "^1.0.0-rc.12",
     "d3": "^7.8.2"
   },
-  "type": "commonjs"
+  "type": "module"
 }
