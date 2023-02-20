@@ -7,7 +7,7 @@ const latestCardStyle = `
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script type="text/javascript" src="node_modules/d3/dist/d3.js" charset="utf-8"></script>
+    <script type="module" src="node_modules/d3/dist/d3.js" charset="utf-8"></script>
     <script type="text/javascript">
         function wrap() {
             var self = d3.select(this),
