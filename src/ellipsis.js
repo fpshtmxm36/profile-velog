@@ -23,4 +23,4 @@ function textEllipsis(width) {
     return text;
 }
 
-export default { textEllipsis };
+module.exports = { textEllipsis };
