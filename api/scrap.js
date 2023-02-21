@@ -19,7 +19,7 @@ const parsing = async (id, seq) => {
     $bodyList.each(function(i, elem) {
         if(i == seq){
             ulList[i] = {
-                title: $(this).find('div a h2').text(),
+                title: $(this).find('div a h2').text().replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;'),
                 createTime: $(this).find('div div.subinfo span:nth-child(1)').text(),
                 url: 'https://velog.io' + $(this).find('div a').attr('href')
             };
