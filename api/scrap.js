@@ -1,5 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const gtw = require("get-text-width");
 
 const getHtml = async (id) => {
     try {
@@ -8,6 +9,28 @@ const getHtml = async (id) => {
         console.error(error);
     }
 };
+
+function textEllipsis(text) {
+    //https://www.npmjs.com/package/get-text-width
+    text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
+    
+    console.log('text: '+ text);
+    console.log('text.getBytes: '+ getBytes(text));
+    console.log('getTextWidth: '+ gtw.getTextWidth(text));
+    
+    if (gtw.getTextWidth(text) > 324) {
+        text = text.substr(0, 35) + '...';
+    }
+    return text;
+}
+
+function getBytes(str) {
+    var byte = 0;
+    for (var i=0; i<str.length; ++i) {
+        (str.charCodeAt(i) > 127) ? byte += 2 : byte++ ;
+    }    
+    return byte;
+}
 
 const parsing = async (id, seq) => {
     const html = await getHtml(id);
@@ -19,7 +42,7 @@ const parsing = async (id, seq) => {
     $bodyList.each(function(i, elem) {
         if(i == seq){
             ulList[i] = {
-                title: $(this).find('div a h2').text().replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;'),
+                title: textEllipsis($(this).find('div a h2').text()),
                 createTime: $(this).find('div div.subinfo span:nth-child(1)').text(),
                 url: 'https://velog.io' + $(this).find('div a').attr('href')
             };
