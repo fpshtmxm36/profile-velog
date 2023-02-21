@@ -48,14 +48,12 @@ const createLatestCard = (data) => {
         <script>
         function textEllipsis(width) {
             let el = document.querySelector('.log-title');
+
             if (typeof el.getSubStringLength !== "undefined") {
                 let text = el.textContent;
-                console.log("el.textContent: " + el.textContent);
-                console.log("el.text: " + text);
                 var len = text.length;
-                console.log("el.text.length: " + text.length);
                 while (el.getSubStringLength(0, len--) > width) {
-                el.textContent = text.slice(0, len) + "...";
+                    el.textContent = text.slice(0, len) + "...";
                 }
             } else if (typeof el.getComputedTextLength !== "undefined") {
                 while (el.getComputedTextLength() > width) {
@@ -69,7 +67,7 @@ const createLatestCard = (data) => {
                 }
             }
         }
-        textEllipsis(344);
+        textEllipsis(324);
         </script>
     </svg>`;
 };
