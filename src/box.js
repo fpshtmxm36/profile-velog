@@ -1,5 +1,4 @@
-const latestCardStyle = (d3) => {
-return `
+const latestCardStyle =`
     <style>
         .header {
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -10,24 +9,30 @@ return `
     </style>
     <script type="module" src="./useD3.js"></script>
     <script>
-    ${
-    function wrap() {
-        var self = d3.select(this),
-            textLength = self.node().getComputedTextLength(),
-            text = self.text();
-        while (textLength > (width - 2 * padding) && text.length > 0) {
-            text = text.slice(0, -1);
-            self.text(text + '...');
-            textLength = self.node().getComputedTextLength();
+    const title = document.querySelector('.log-title');
+
+    function textEllipsis(el, text, width) {
+        if (typeof el.getSubStringLength !== "undefined") {
+            el.textContent = text;
+            var len = text.length;
+            while (el.getSubStringLength(0, len--) > width) {
+              el.textContent = text.slice(0, len) + "...";
+            }
+        } else if (typeof el.getComputedTextLength !== "undefined") {
+            while (el.getComputedTextLength() > width) {
+                text = text.slice(0,-1);
+                el.textContent = text + "...";
+            }
+        } else {
+            while (el.getBBox().width > width) {
+                text = text.slice(0,-1);
+                el.textContent = text + "...";
+            }
         }
     }
-    }
-    
-    var g = ${d3.select('.log-title')};
 
-    g.text(function(d) { return d.name; }).each(wrap);
+    textEllipsis(title, title.textContent, 344);
     </script>`;
-};
 
 const createLatestCardBody = (data) => {
     return `
@@ -48,11 +53,11 @@ const createLatestCardBody = (data) => {
         `;
 };
 
-const createLatestCard = (data, d3) => {
+const createLatestCard = (data) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
-        ${latestCardStyle(d3)}
+        ${latestCardStyle}
         <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
         <rect x="9" y="12" width="40" height="40" fill="url(#pattern0)"/>
         <defs>
