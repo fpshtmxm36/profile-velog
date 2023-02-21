@@ -1,4 +1,4 @@
-function textEllipsis(width) {
+export function textEllipsis(width) {
     let el = document.querySelector('.log-title');
     let text;
 
@@ -22,5 +22,3 @@ function textEllipsis(width) {
 
     return text;
 }
-
-module.exports = { textEllipsis };

@@ -1,3 +1,5 @@
+import {textEllipsis} from "src\ellipsis.js"
+
 const latestCardStyle =`<style>
         .header {
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -9,7 +11,7 @@ const latestCardStyle =`<style>
     <script xlink:href="/src/ellipsis.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            textEllipsis(324);
+            ${textEllipsis(324)}
         });
     </script>`;
 
