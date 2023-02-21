@@ -1,6 +1,6 @@
+import d3 from "d3";
 const { parsing } = require("./scrap");
 const { createLatestCard } = require("../src/box");
-const d3 = require("d3");
 const log = console.log;
 
 module.exports = async (req, res) => {
