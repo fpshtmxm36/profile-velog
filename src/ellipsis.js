@@ -22,3 +22,5 @@ function textEllipsis(width) {
 
     return text;
 }
+
+export { textEllipsis };
