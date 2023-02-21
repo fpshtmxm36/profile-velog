@@ -1,6 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const getTextWidth = require("get-text-width");
+const {getTextWidth} = require("get-text-width");
 
 const getHtml = async (id) => {
     try {
