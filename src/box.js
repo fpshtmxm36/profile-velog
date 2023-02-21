@@ -46,16 +46,11 @@ const createLatestCard = (data) => {
         </defs>
         ${createLatestCardBody(data)}
         <script>
-        function textEllipsis(text, width) {
+        function textEllipsis(width) {
             let el = document.querySelector('.log-title');
-            let test = document.querySelectorAll('*');
-            console.log("text: " + text + ", width: " + width);
-            console.log("el: " + el);
-            console.log("test: " + test);
-            console.log("el.getSubStringLength: " + el.getSubStringLength);
-            console.log("el.getComputedTextLength: " + el.getComputedTextLength);
             if (typeof el.getSubStringLength !== "undefined") {
-                el.textContent = text;
+                let text = el.textContent;
+                console.log("el.textContent: " + el.textContent);
                 console.log("el.text: " + text);
                 var len = text.length;
                 console.log("el.text.length: " + text.length);
@@ -67,9 +62,14 @@ const createLatestCard = (data) => {
                     text = text.slice(0,-1);
                     el.textContent = text + "...";
                 }
+            } else {
+                while (el.getBBox().width > width) {
+                    text = text.slice(0,-1);
+                    el.textContent = text + "...";
+                }
             }
         }
-        textEllipsis('', 344);
+        textEllipsis(344);
         </script>
     </svg>`;
 };
