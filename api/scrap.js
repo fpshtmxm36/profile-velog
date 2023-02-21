@@ -10,7 +10,7 @@ const getHtml = async (id) => {
 };
 
 const escapeEncode = (text) => {
-    text.replace('&', '&amp;').replace('\'', '&apos;').replace('\"', '&quot;').replace('<', '&lt;').replace('>', '&gt;');
+    text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     return text;
 };
 
