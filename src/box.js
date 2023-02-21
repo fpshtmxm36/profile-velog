@@ -16,9 +16,13 @@ const createLatestCardBody = (data) => {
         var el = document.getElementsByClassName('log-title');
         console.log("text: " + text + ", width: " + width);
         console.log("el: " + el);
+        console.log("el.getSubStringLength: " + el.getSubStringLength);
+        console.log("el.getComputedTextLength: " + el.getComputedTextLength);
         if (typeof el.getSubStringLength !== "undefined") {
             el.textContent = text;
+            console.log("el.text: " + text);
             var len = text.length;
+            console.log("el.text.length: " + text.length);
             while (el.getSubStringLength(0, len--) > width) {
               el.textContent = text.slice(0, len) + "...";
             }
