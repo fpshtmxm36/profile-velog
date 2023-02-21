@@ -11,32 +11,6 @@ const latestCardStyle =`
 
 const createLatestCardBody = (data) => {
     return `
-    <script>
-    function textEllipsis(text, width) {
-        let el = document.querySelector('.log-title');
-        let test = document.querySelectorAll('*');
-        console.log("text: " + text + ", width: " + width);
-        console.log("el: " + el);
-        console.log("test: " + test);
-        console.log("el.getSubStringLength: " + el.getSubStringLength);
-        console.log("el.getComputedTextLength: " + el.getComputedTextLength);
-        if (typeof el.getSubStringLength !== "undefined") {
-            el.textContent = text;
-            console.log("el.text: " + text);
-            var len = text.length;
-            console.log("el.text.length: " + text.length);
-            while (el.getSubStringLength(0, len--) > width) {
-              el.textContent = text.slice(0, len) + "...";
-            }
-        } else if (typeof el.getComputedTextLength !== "undefined") {
-            while (el.getComputedTextLength() > width) {
-                text = text.slice(0,-1);
-                el.textContent = text + "...";
-            }
-        }
-    }
-    textEllipsis('', 344);
-    </script>
     <a xlink:href="${data[0]?.url}" target="_blank">
     <g data-testid="main-card-body" transform="translate(5, 9)">
     <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
@@ -72,6 +46,32 @@ const createLatestCard = (data) => {
         </defs>
         ${createLatestCardBody(data)}
     </svg>
+    <script>
+    function textEllipsis(text, width) {
+        let el = document.querySelector('.log-title');
+        let test = document.querySelectorAll('*');
+        console.log("text: " + text + ", width: " + width);
+        console.log("el: " + el);
+        console.log("test: " + test);
+        console.log("el.getSubStringLength: " + el.getSubStringLength);
+        console.log("el.getComputedTextLength: " + el.getComputedTextLength);
+        if (typeof el.getSubStringLength !== "undefined") {
+            el.textContent = text;
+            console.log("el.text: " + text);
+            var len = text.length;
+            console.log("el.text.length: " + text.length);
+            while (el.getSubStringLength(0, len--) > width) {
+              el.textContent = text.slice(0, len) + "...";
+            }
+        } else if (typeof el.getComputedTextLength !== "undefined") {
+            while (el.getComputedTextLength() > width) {
+                text = text.slice(0,-1);
+                el.textContent = text + "...";
+            }
+        }
+    }
+    textEllipsis('', 344);
+    </script>
         `;
 };
   
