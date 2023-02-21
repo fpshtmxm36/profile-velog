@@ -1,3 +1,5 @@
+const d3 = require("d3");
+
 const latestCardStyle = `
     <style>
         .header {
@@ -9,7 +11,20 @@ const latestCardStyle = `
     </style>
     <script type="module" src="./useD3.js"></script>
     <script>
-    var g = d3.select('.log-title');
+    ${
+    function wrap() {
+        var self = d3.select(this),
+            textLength = self.node().getComputedTextLength(),
+            text = self.text();
+        while (textLength > (width - 2 * padding) && text.length > 0) {
+            text = text.slice(0, -1);
+            self.text(text + '...');
+            textLength = self.node().getComputedTextLength();
+        }
+    }
+    }
+    
+    var g = ${d3.select('.log-title')};
 
     g.text(function(d) { return d.name; }).each(wrap);
     </script>
