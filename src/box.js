@@ -1,6 +1,5 @@
-import d3 from "d3";
-
-const latestCardStyle = `
+const latestCardStyle = (d3) => {
+return `
     <style>
         .header {
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -27,8 +26,8 @@ const latestCardStyle = `
     var g = ${d3.select('.log-title')};
 
     g.text(function(d) { return d.name; }).each(wrap);
-    </script>
-`;
+    </script>`;
+};
 
 const createLatestCardBody = (data) => {
     return `
@@ -49,11 +48,11 @@ const createLatestCardBody = (data) => {
         `;
 };
 
-const createLatestCard = (data) => {
+const createLatestCard = (data, d3) => {
     return `
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
-        ${latestCardStyle}
+        ${latestCardStyle(d3)}
         <rect width="400" height="65" rx="10" fill="white" fill-opacity="1"/>
         <rect x="9" y="12" width="40" height="40" fill="url(#pattern0)"/>
         <defs>
