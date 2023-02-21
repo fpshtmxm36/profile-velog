@@ -9,8 +9,6 @@ const latestCardStyle =`
     </style>
     <script type="module" src="./useD3.js"></script>
     <script>
-    const title = document.querySelector('.log-title');
-
     function textEllipsis(el, text, width) {
         if (typeof el.getSubStringLength !== "undefined") {
             el.textContent = text;
@@ -31,7 +29,8 @@ const latestCardStyle =`
         }
     }
 
-    textEllipsis(title, title.textContent, 344);
+    const title = document.querySelector('.log-title');
+    textEllipsis(title, '', 344);
     </script>`;
 
 const createLatestCardBody = (data) => {
