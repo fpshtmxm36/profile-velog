@@ -7,7 +7,11 @@ const latestCardStyle =`
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script type="text/javascript" src="./textEllipsis.js"></script>`;
+    <script type="text/javascript" src="./textEllipsis.js"></script>
+    <script>
+        textEllipsis('', 344)
+    </script>;
+    `;
 
 const createLatestCardBody = (data) => {
     return `
