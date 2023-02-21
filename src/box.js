@@ -8,7 +8,7 @@ const latestCardStyle =`<style>
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementsByClassName("log-title").addEventListener("load", 
+            document.getElementsByClassName("log-title").addEventListener("load", , function() {
                 let el = document.querySelector('.log-title');
             
                 if (typeof el.getSubStringLength !== "undefined") {
@@ -28,7 +28,7 @@ const latestCardStyle =`<style>
                         el.textContent = text + "...";
                     }
                 }
-            );
+            });
         });
     </script>`;
 
