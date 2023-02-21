@@ -7,8 +7,7 @@ const latestCardStyle =`
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script type="module" src="./useD3.js"></script>
-    <script>
+    <script type="text/javascript">
     function textEllipsis(el, text, width) {
         if (typeof el.getSubStringLength !== "undefined") {
             el.textContent = text;
@@ -29,7 +28,8 @@ const latestCardStyle =`
         }
     }
 
-    const title = document.querySelector('.log-title');
+    var title = document.querySelector('.log-title');
+    console.log(title);
     textEllipsis(title, '', 344);
     </script>`;
 
