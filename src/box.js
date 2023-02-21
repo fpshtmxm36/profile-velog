@@ -16,7 +16,7 @@ const createLatestCardBody = (data) => {
     <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
         <g transform="translate(0, 0)">
             <text data-testid="lang-name" x="0" y="20" width="344" class="log-title">
-            <![CDATA[${data[0]?.title}]]>
+            ${data[0]?.title}
             </text>
             <text data-testid="lang-name" x="0" y="40" class="log-date">
             ${data[0]?.createTime}
@@ -70,8 +70,7 @@ const createLatestCard = (data) => {
         }
         textEllipsis(324);
         </script>
-    </svg>
-    `;
+    </svg>`;
 };
   
 module.exports = { createLatestCard };
