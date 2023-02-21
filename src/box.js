@@ -13,7 +13,7 @@ const createLatestCardBody = (data) => {
     return `
     <script>
     function textEllipsis(text, width) {
-        var el = document.getElementsByClassName('log-title');
+        var el = document.querySelector('log-title')[0];
         console.log("text: " + text + ", width: " + width);
         console.log("el: " + el);
         if (typeof el.getSubStringLength !== "undefined") {
@@ -34,7 +34,7 @@ const createLatestCardBody = (data) => {
             }
         }
     }
-    textEllipsis('', 344)
+    textEllipsis('', 344);
     </script>
     <a xlink:href="${data[0]?.url}" target="_blank">
     <g data-testid="main-card-body" transform="translate(5, 9)">
