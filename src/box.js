@@ -7,31 +7,7 @@ const latestCardStyle =`
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script type="text/javascript">
-    function textEllipsis(el, text, width) {
-        if (typeof el.getSubStringLength !== "undefined") {
-            el.textContent = text;
-            var len = text.length;
-            while (el.getSubStringLength(0, len--) > width) {
-              el.textContent = text.slice(0, len) + "...";
-            }
-        } else if (typeof el.getComputedTextLength !== "undefined") {
-            while (el.getComputedTextLength() > width) {
-                text = text.slice(0,-1);
-                el.textContent = text + "...";
-            }
-        } else {
-            while (el.getBBox().width > width) {
-                text = text.slice(0,-1);
-                el.textContent = text + "...";
-            }
-        }
-    }
-
-    var title = document.querySelector('.log-title');
-    console.log(title);
-    textEllipsis(title, '', 344);
-    </script>`;
+    <script type="text/javascript" src="./textEllipsis.js"></script>`;
 
 const createLatestCardBody = (data) => {
     return `
