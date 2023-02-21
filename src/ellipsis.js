@@ -1,3 +1,5 @@
+textEllipsis(324);
+
 function textEllipsis(width) {
     let el = document.querySelector('.log-title');
 
