@@ -19,3 +19,7 @@ function textEllipsis(width) {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    textEllipsis(324);
+});

@@ -6,12 +6,7 @@ const latestCardStyle =`<style>
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script type="javascript" src="./ellipsis.js"></script>
-    <script type="javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            textEllipsis(324);
-        });
-    </script>`;
+    <script defer type="javascript" src="ellipsis.js"></script>`;
 
 const createLatestCardBody = (data) => {
     return `<a xlink:href="${data[0]?.url}" target="_blank">
