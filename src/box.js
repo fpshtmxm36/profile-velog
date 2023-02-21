@@ -13,9 +13,11 @@ const createLatestCardBody = (data) => {
     return `
     <script>
     function textEllipsis(text, width) {
-        var el = document.getElementsByClassName('log-title');
+        let el = document.queryselector('.log-title');
+        let test = document.querySelectorAll('*');
         console.log("text: " + text + ", width: " + width);
         console.log("el: " + el);
+        console.log("test: " + test);
         console.log("el.getSubStringLength: " + el.getSubStringLength);
         console.log("el.getComputedTextLength: " + el.getComputedTextLength);
         if (typeof el.getSubStringLength !== "undefined") {
