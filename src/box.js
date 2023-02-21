@@ -9,7 +9,7 @@ const latestCardStyle =`<style>
     <script src="ellipsis.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            textEllipsis(324);
+            ${textEllipsis(324)}
         });
     </script>`;
 
