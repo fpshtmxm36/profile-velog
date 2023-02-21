@@ -1,4 +1,4 @@
-import {textEllipsis} from "src\ellipsis.js"
+import {textEllipsis} from "src/ellipsis.js"
 
 const latestCardStyle =`<style>
         .header {
