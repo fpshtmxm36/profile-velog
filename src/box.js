@@ -13,7 +13,7 @@ const createLatestCardBody = (data) => {
     return `
     <script>
     function textEllipsis(text, width) {
-        var el = document.getElementsByClassName('log-title')[0];
+        var el = document.getElementsByClassName('log-title');
         console.log("text: " + text + ", width: " + width);
         console.log("el: " + el);
         if (typeof el.getSubStringLength !== "undefined") {
@@ -24,11 +24,6 @@ const createLatestCardBody = (data) => {
             }
         } else if (typeof el.getComputedTextLength !== "undefined") {
             while (el.getComputedTextLength() > width) {
-                text = text.slice(0,-1);
-                el.textContent = text + "...";
-            }
-        } else {
-            while (el.getBBox().width > width) {
                 text = text.slice(0,-1);
                 el.textContent = text + "...";
             }
