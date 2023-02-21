@@ -1,6 +1,6 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const gtw = require("get-text-width");
+const getTextWidth = require("get-text-width");
 
 const getHtml = async (id) => {
     try {
@@ -18,7 +18,7 @@ function textEllipsis(text) {
     console.log('text.getBytes: '+ getBytes(text));
     console.log('getTextWidth: '+ gtw.getTextWidth(text));
     
-    if (gtw.getTextWidth(text) > 324) {
+    if (getTextWidth(text) > 324) {
         text = text.substr(0, 35) + '...';
     }
     return text;
