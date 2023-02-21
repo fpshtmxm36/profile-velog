@@ -1,5 +1,4 @@
-const latestCardStyle =`
-    <style>
+const latestCardStyle =`<style>
         .header {
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
             fill: #343A40;
@@ -7,7 +6,33 @@ const latestCardStyle =`
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    `;
+    <script>
+        function textEllipsis(width) {
+            let el = document.querySelector('.log-title');
+        
+            if (typeof el.getSubStringLength !== "undefined") {
+                let text = el.textContent;
+                var len = text.length;
+                while (el.getSubStringLength(0, len--) > width) {
+                    el.textContent = text.slice(0, len) + "...";
+                }
+            } else if (typeof el.getComputedTextLength !== "undefined") {
+                while (el.getComputedTextLength() > width) {
+                    text = text.slice(0,-1);
+                    el.textContent = text + "...";
+                }
+            } else {
+                while (el.getBBox().width > width) {
+                    text = text.slice(0,-1);
+                    el.textContent = text + "...";
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            textEllipsis(324);
+        });
+        </script>`;
 
 const createLatestCardBody = (data) => {
     return `<a xlink:href="${data[0]?.url}" target="_blank">
@@ -42,30 +67,6 @@ const createLatestCard = (data) => {
         />
         </defs>
         ${createLatestCardBody(data)}
-        <script>
-        function textEllipsis(width) {
-            let el = document.querySelector('.log-title');
-        
-            if (typeof el.getSubStringLength !== "undefined") {
-                let text = el.textContent;
-                var len = text.length;
-                while (el.getSubStringLength(0, len--) > width) {
-                    el.textContent = text.slice(0, len) + "...";
-                }
-            } else if (typeof el.getComputedTextLength !== "undefined") {
-                while (el.getComputedTextLength() > width) {
-                    text = text.slice(0,-1);
-                    el.textContent = text + "...";
-                }
-            } else {
-                while (el.getBBox().width > width) {
-                    text = text.slice(0,-1);
-                    el.textContent = text + "...";
-                }
-            }
-        }
-        textEllipsis(324);
-        </script>
     </svg>`;
 };
   
