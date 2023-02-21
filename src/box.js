@@ -6,7 +6,7 @@ const latestCardStyle =`<style>
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
     </style>
-    <script src="ellipsis.js"></script>
+    <script xlink:href="ellipsis.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             textEllipsis(324);
