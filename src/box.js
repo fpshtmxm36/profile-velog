@@ -27,8 +27,7 @@ const createLatestCardBody = (data) => {
 };
 
 const createLatestCard = (data) => {
-    return `
-    <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self'; script-src 'self'; style-src 'self'; " >
+    return `<<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self'">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
         width="400" height="65" viewBox="0 0 400 65" fill="none">
         ${latestCardStyle}
