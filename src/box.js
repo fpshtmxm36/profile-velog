@@ -1,3 +1,5 @@
+const { textEllipsis } = require("./ellipsis.js");
+
 const latestCardStyle =`<style>
         .header {
             font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif;
