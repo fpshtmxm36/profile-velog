@@ -45,34 +45,33 @@ const createLatestCard = (data) => {
         />
         </defs>
         ${createLatestCardBody(data)}
-    </svg>
-    <script>
-    function textEllipsis(text, width) {
-        let el = document.querySelector('.log-title');
-        let test = document.querySelectorAll('*');
-        console.log("text: " + text + ", width: " + width);
-        console.log("el: " + el);
-        console.log("test: " + test);
-        console.log("el.getSubStringLength: " + el.getSubStringLength);
-        console.log("el.getComputedTextLength: " + el.getComputedTextLength);
-        if (typeof el.getSubStringLength !== "undefined") {
-            el.textContent = text;
-            console.log("el.text: " + text);
-            var len = text.length;
-            console.log("el.text.length: " + text.length);
-            while (el.getSubStringLength(0, len--) > width) {
-              el.textContent = text.slice(0, len) + "...";
-            }
-        } else if (typeof el.getComputedTextLength !== "undefined") {
-            while (el.getComputedTextLength() > width) {
-                text = text.slice(0,-1);
-                el.textContent = text + "...";
+        <script>
+        function textEllipsis(text, width) {
+            let el = document.querySelector('.log-title');
+            let test = document.querySelectorAll('*');
+            console.log("text: " + text + ", width: " + width);
+            console.log("el: " + el);
+            console.log("test: " + test);
+            console.log("el.getSubStringLength: " + el.getSubStringLength);
+            console.log("el.getComputedTextLength: " + el.getComputedTextLength);
+            if (typeof el.getSubStringLength !== "undefined") {
+                el.textContent = text;
+                console.log("el.text: " + text);
+                var len = text.length;
+                console.log("el.text.length: " + text.length);
+                while (el.getSubStringLength(0, len--) > width) {
+                el.textContent = text.slice(0, len) + "...";
+                }
+            } else if (typeof el.getComputedTextLength !== "undefined") {
+                while (el.getComputedTextLength() > width) {
+                    text = text.slice(0,-1);
+                    el.textContent = text + "...";
+                }
             }
         }
-    }
-    textEllipsis('', 344);
-    </script>
-        `;
+        textEllipsis('', 344);
+        </script>
+    </svg>`;
 };
   
 module.exports = { createLatestCard };
