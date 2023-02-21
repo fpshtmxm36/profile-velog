@@ -6,12 +6,11 @@ const latestCardStyle =`
         }
         .log-title { font: bold 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #212529;}
         .log-date { font-size: 12px; fill: #495057}
-    </style>;
+    </style>
     `;
 
 const createLatestCardBody = (data) => {
-    return `
-    <a xlink:href="${data[0]?.url}" target="_blank">
+    return `<a xlink:href="${data[0]?.url}" target="_blank">
     <g data-testid="main-card-body" transform="translate(5, 9)">
     <svg data-testid="lang-items" x="25" width="360" height="100" viewBox="0 0 300 100">
         <g transform="translate(0, 0)">
@@ -24,8 +23,7 @@ const createLatestCardBody = (data) => {
         </g>
     </svg>
     </g>
-    </a>
-        `;
+    </a>`;
 };
 
 const createLatestCard = (data) => {
