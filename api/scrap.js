@@ -4,11 +4,12 @@ const cheerio = require("cheerio");
 function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     
-    var l = 0;
-    for (var i=0; i<text.length; i++) l += (text.charCodeAt(i) > 128) ? 2 : 1;
+    const l = 0;
+    for (const i=0; i<text.length; i++) l += (text.charCodeAt(i) > 128) ? 2 : 1;
 
     if (l > 51) {
-        for (var i=0; i<text.length; i++) {
+        const s = 0;
+        for (const i=0; i<text.length; i++) {
             s += (text.charCodeAt(i) > 128) ? 2 : 1;
             if (s > 51) return text.substring(0,i) + "...";
         } 
