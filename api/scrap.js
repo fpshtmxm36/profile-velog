@@ -20,10 +20,9 @@ String.prototype.bytes = function() {
 
 function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
-    console.log("text 바이트: " + text.bytes);
-    console.log("text 길이: " + text.length);
-    if (text.length > 23) {
-        text.cut(23);
+    
+    if (text.bytes > 51) {
+        text.cut(51);
     }
     return text;
 }
