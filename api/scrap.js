@@ -7,11 +7,11 @@ function textEllipsis(text) {
     var l = 0;
     for (var i=0; i<text.length; i++) l += (text.charCodeAt(i) > 128) ? 2 : 1;
 
-    if (l > 51) {
+    if (l > 47) {
         var s = 0;
         for (var i=0; i<text.length; i++) {
             s += (text.charCodeAt(i) > 128) ? 2 : 1;
-            if (s > 51) return text.substring(0,i) + "...";
+            if (s > 47) return text.substring(0,i) + "...";
         } 
     }
     return text;
