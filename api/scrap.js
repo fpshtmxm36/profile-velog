@@ -5,15 +5,23 @@ String.prototype.cut = function(len) {
     var str = this;
     var s = 0;
     for (var i=0; i<str.length; i++) {
-            s += (str.charCodeAt(i) > 128) ? 2 : 1;
-            if (s > len) return str.substring(0,i) + "...";
+        s += (str.charCodeAt(i) > 128) ? 2 : 1;
+        if (s > len) return str.substring(0,i) + "...";
     }        
 return str;
-} 
+}
+
+String.prototype.bytes = function() {
+    var str = this;
+    var l = 0;
+    for (var i=0; i<str.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
+    return l;
+}
 
 function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
-    
+    console.log("text 바이트: " + text.bytes);
+    console.log("text 길이: " + text.length);
     if (text.length > 23) {
         text.cut(23);
     }
