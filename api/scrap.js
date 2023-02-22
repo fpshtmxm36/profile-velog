@@ -12,8 +12,8 @@ const getHtml = async (id) => {
 function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     
-    if (text.length > 36) {
-        text = text.substr(0, 36) + '...';
+    if (text.length > 23) {
+        text = text.substr(0, 22) + '...';
     }
     return text;
 }
