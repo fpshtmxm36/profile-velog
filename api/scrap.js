@@ -1,28 +1,17 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-String.prototype.cut = function(len) {
-    var str = this;
-    var s = 0;
-    for (var i=0; i<str.length; i++) {
-        s += (str.charCodeAt(i) > 128) ? 2 : 1;
-        if (s > len) return str.substring(0,i) + "...";
-    }        
-return str;
-}
-
-String.prototype.bytes = function() {
-    var str = this;
-    var l = 0;
-    for (var i=0; i<str.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
-    return l;
-}
-
 function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     
-    if (text.bytes > 51) {
-        text.cut(51);
+    var l = 0;
+    for (var i=0; i<text.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
+
+    if (l > 51) {
+        for (var i=0; i<text.length; i++) {
+            s += (text.charCodeAt(i) > 128) ? 2 : 1;
+            if (s > 51) return text.substring(0,i) + "...";
+        } 
     }
     return text;
 }
