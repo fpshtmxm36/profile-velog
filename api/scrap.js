@@ -5,7 +5,7 @@ function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     
     var l = 0;
-    for (var i=0; i<text.length; i++) l += (str.charCodeAt(i) > 128) ? 2 : 1;
+    for (var i=0; i<text.length; i++) l += (text.charCodeAt(i) > 128) ? 2 : 1;
 
     if (l > 51) {
         for (var i=0; i<text.length; i++) {
