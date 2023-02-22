@@ -1,6 +1,5 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const {getTextWidth} = require("get-text-width");
 
 const getHtml = async (id) => {
     try {
@@ -11,14 +10,10 @@ const getHtml = async (id) => {
 };
 
 function textEllipsis(text) {
-    //https://www.npmjs.com/package/get-text-width
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     
-    console.log('text: '+ text);
-    console.log('getTextWidth: '+ getTextWidth(text));
-    
-    if (getTextWidth(text) > 324) {
-        text = text.substr(0, 35) + '...';
+    if (text.length > 36) {
+        text = text.substr(0, 36) + '...';
     }
     return text;
 }
