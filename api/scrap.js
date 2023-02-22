@@ -1,6 +1,25 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
+String.prototype.cut = function(len) {
+    var str = this;
+    var s = 0;
+    for (var i=0; i<str.length; i++) {
+            s += (str.charCodeAt(i) > 128) ? 2 : 1;
+            if (s > len) return str.substring(0,i) + "...";
+    }        
+return str;
+} 
+
+function textEllipsis(text) {
+    text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
+    
+    if (text.length > 23) {
+        text.cut(23);
+    }
+    return text;
+}
+
 const getHtml = async (id) => {
     try {
         return await axios.get('https://velog.io/@'+id);
@@ -8,15 +27,6 @@ const getHtml = async (id) => {
         console.error(error);
     }
 };
-
-function textEllipsis(text) {
-    text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
-    
-    if (text.length > 23) {
-        text = text.substr(0, 22) + '...';
-    }
-    return text;
-}
 
 const parsing = async (id, seq) => {
     const html = await getHtml(id);
