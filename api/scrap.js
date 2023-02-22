@@ -15,21 +15,12 @@ function textEllipsis(text) {
     text = text.replace(/&/gi, '&amp;').replace(/'/gi, '&apos;').replace(/"/gi, '&quot;').replace(/</gi, '&lt;').replace(/>/gi, '&gt;');
     
     console.log('text: '+ text);
-    console.log('text.getBytes: '+ getBytes(text));
-    console.log('getTextWidth: '+ gtw.getTextWidth(text));
+    console.log('getTextWidth: '+ getTextWidth(text));
     
     if (getTextWidth(text) > 324) {
         text = text.substr(0, 35) + '...';
     }
     return text;
-}
-
-function getBytes(str) {
-    var byte = 0;
-    for (var i=0; i<str.length; ++i) {
-        (str.charCodeAt(i) > 127) ? byte += 2 : byte++ ;
-    }    
-    return byte;
 }
 
 const parsing = async (id, seq) => {
